@@ -15,7 +15,7 @@ struct MemoryStorage {
         
         func store(value: T, forKey key: String) {
             lock.lock()
-            do { lock.unlock() }
+            defer { lock.unlock() }
             
             let object = StorageObject(value)
             storage.setObject(object, forKey: key as NSString)
@@ -23,16 +23,30 @@ struct MemoryStorage {
         
         func remove(forKey key: String) {
             lock.lock()
-            do { lock.unlock() }
+            defer { lock.unlock() }
             
             storage.removeObject(forKey: key as NSString)
         }
         
         func removeAll() {
             lock.lock()
-            do { lock.unlock() }
+            defer { lock.unlock() }
             
             storage.removeAllObjects()
+        }
+        
+        func value(forKey key: String) -> T? {
+            guard let object = storage.object(forKey: key as NSString) else {
+                return nil
+            }
+            return object.value
+        }
+        
+        func isCached(forKey key: String) -> Bool {
+            guard let _ = value(forKey: key) else {
+                return false
+            }
+            return true
         }
     }
 }

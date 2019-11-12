@@ -12,6 +12,7 @@ enum FFmpegError: Error {
     enum CacheErrorReason {
         case cannotCreateDirectory
         case cannotConvertToData
+        case cannotLoadDataFromDisk
     }
     
     case cacheError(CacheErrorReason)

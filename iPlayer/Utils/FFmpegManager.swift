@@ -10,7 +10,19 @@ import UIKit
 
 class FFmpegManager {
     static let share = FFmpegManager()
-    private init() {}
+    var cache: ImageCache
+    var downloader: ImageDownloader
     
+    init() {
+        cache = .default
+        downloader = .default
+    }
     
+    func retrieveImage(forKey key: String, completionHandler: ((Result<UIImage?, FFmpegError>) -> Void)?) {
+        if cache.imageCachedType(forKey: key) != .none {
+            cache.retrieveImage(forKey: key, completionHandler: completionHandler)
+        } else {
+            downloader.downloadImage(forKey: key, completionHandler: completionHandler)
+        }
+    }
 }

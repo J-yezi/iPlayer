@@ -42,6 +42,36 @@ struct DiskStorage {
         func removeFile(at url: URL) throws {
             try config.fileManager.removeItem(at: url)
         }
+        
+        func remove(forKey key: String) {
+            try! removeFile(at: cacheFileURL(forKey: key))
+        }
+        
+        func value(forKey key: String) throws -> T? {
+            let fileManager = config.fileManager
+            let fileURL = cacheFileURL(forKey: key)
+            let filePath = fileURL.path
+            guard fileManager.fileExists(atPath: filePath) else {
+                return nil
+            }
+            
+            do {
+                return try Data(contentsOf: fileURL)
+            } catch {
+                throw FFmpegError.cacheError(reason: .cannotLoadDataFromDisk)
+            }
+        }
+        
+        func isCached(forKey key: String) -> Bool {
+            do {
+                guard let _ = try value(forKey: key) else {
+                    return false
+                }
+                return true
+            } catch {
+                return false
+            }
+        }
     }
 }
 
