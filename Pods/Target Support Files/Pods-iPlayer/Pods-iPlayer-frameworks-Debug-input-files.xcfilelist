@@ -1,0 +1,13 @@
+${PODS_ROOT}/Target Support Files/Pods-iPlayer/Pods-iPlayer-frameworks.sh
+${BUILT_PRODUCTS_DIR}/BaseKit/BaseKit.framework
+${BUILT_PRODUCTS_DIR}/CcExtensions/CcExtensions.framework
+${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
+${PODS_ROOT}/LookinServer/LookinServer.framework
+${BUILT_PRODUCTS_DIR}/LotusKit/LotusKit.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/UtilsKit/UtilsKit.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

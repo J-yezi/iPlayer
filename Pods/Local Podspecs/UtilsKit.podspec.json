@@ -1,0 +1,27 @@
+{
+  "name": "UtilsKit",
+  "version": "0.0.1",
+  "homepage": "UtilsKit",
+  "license": "MIT",
+  "authors": {
+    "": ""
+  },
+  "source": {
+    "git": "",
+    "tag": "0.0.1"
+  },
+  "summary": "工具",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "UtilsKit/**/*",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "RxSwift": [
+
+    ],
+    "RxCocoa": [
+
+    ]
+  }
+}

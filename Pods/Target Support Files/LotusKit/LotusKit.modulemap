@@ -1,0 +1,6 @@
+framework module LotusKit {
+  umbrella header "LotusKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

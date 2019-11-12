@@ -1,0 +1,19 @@
+{
+  "name": "BaseKit",
+  "version": "0.0.1",
+  "homepage": "BaseKit",
+  "license": "MIT",
+  "authors": {
+    "": ""
+  },
+  "source": {
+    "git": "",
+    "tag": "0.0.1"
+  },
+  "summary": "父类",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "BaseKit/**/*",
+  "frameworks": "UIKit"
+}

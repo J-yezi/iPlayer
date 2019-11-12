@@ -1,0 +1,73 @@
+PODS:
+  - BaseKit (0.0.1)
+  - CcExtensions (4.2.3):
+    - CcExtensions/Core (= 4.2.3)
+  - CcExtensions/Core (4.2.3)
+  - Differentiator (4.0.1)
+  - LookinServer (0.9.4)
+  - lottie-ios (2.5.3)
+  - LotusKit (0.0.1)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - SnapKit (4.2.0)
+  - UtilsKit (0.0.1):
+    - RxCocoa
+    - RxSwift
+
+DEPENDENCIES:
+  - BaseKit (from `Kits/BaseKit`)
+  - CcExtensions
+  - LookinServer
+  - lottie-ios (= 2.5.3)
+  - LotusKit (from `Kits/LotusKit`)
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - SnapKit
+  - UtilsKit (from `Kits/UtilsKit`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CcExtensions
+    - Differentiator
+    - LookinServer
+    - lottie-ios
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SnapKit
+
+EXTERNAL SOURCES:
+  BaseKit:
+    :path: Kits/BaseKit
+  LotusKit:
+    :path: Kits/LotusKit
+  UtilsKit:
+    :path: Kits/UtilsKit
+
+SPEC CHECKSUMS:
+  BaseKit: ee9a5c93391ffd512628bdc266b23d40615ebf54
+  CcExtensions: fa5113176fbbf7a9b350e65bad99edc70d09fe42
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  LookinServer: 54eb99921647bda4068ff8776d842285e2bf0adb
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  LotusKit: 5a6cf307bc5d52d34bcc72e31a4b09aefdc82033
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  UtilsKit: 6f5653d1270b6b0ce72ad844080d3c861fbcc2b0
+
+PODFILE CHECKSUM: 2c4124eca2fcbe35f65335da010827acf762af0c
+
+COCOAPODS: 1.8.4
