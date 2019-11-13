@@ -11,7 +11,7 @@ import UIKit
 class ImageDownloader: NSObject {
     static let `default` = ImageDownloader()
     let queue = OperationQueue()
-    private var tasks: [String: Operation] = [:]
+    private var tasks: [String: ImageTask] = [:]
     private let lock = NSLock()
     
     override init() {
@@ -19,17 +19,17 @@ class ImageDownloader: NSObject {
         queue.maxConcurrentOperationCount = 3
     }
     
-    func downloadImage(forKey key: String, completionHandler: ((Result<UIImage?, FFmpegError>) -> Void)? = nil) {
+    func downloadImage(forKey key: String, completionHandler: ((Result<UIImage, FFmpegError>) -> Void)? = nil) {
         lock.lock()
         defer { lock.unlock() }
         
         let operation: ImageTask
-        if !tasks.keys.contains(path) {
-            operation = ImageTask(path: path)
-            tasks[path] = operation
+        if !tasks.keys.contains(key) {
+            operation = ImageTask(path: key)
+            tasks[key] = operation
             queue.addOperation(operation)
         } else {
-            operation = tasks[path]
+            operation = tasks[key]!
         }
         operation.addCallback(completionHandler)
     }

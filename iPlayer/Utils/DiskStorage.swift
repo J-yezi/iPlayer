@@ -36,7 +36,9 @@ struct DiskStorage {
         }
         
         func cacheFileURL(forKey key: String) -> URL {
-            return config.directory.appendingPathComponent(key.md5)
+            let array = key.components(separatedBy: "/")
+            let name: String = array.dropLast().first!.md5
+            return config.directory.appendingPathComponent(name)
         }
         
         func removeFile(at url: URL) throws {
@@ -56,9 +58,9 @@ struct DiskStorage {
             }
             
             do {
-                return try Data(contentsOf: fileURL)
+                return try T.fromData(Data(contentsOf: fileURL))
             } catch {
-                throw FFmpegError.cacheError(reason: .cannotLoadDataFromDisk)
+                throw FFmpegError.cacheError(.cannotLoadDataFromDisk)
             }
         }
         

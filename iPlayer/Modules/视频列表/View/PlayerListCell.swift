@@ -86,5 +86,7 @@ extension PlayerListCell {
         titleLabel.text = model.title
         timeLabel.text = "23:40"
         cacheLabel.text = "610.23M"
+        print("----", model.path)
+        coverView.setImage(forKey: model.path)
     }
 }

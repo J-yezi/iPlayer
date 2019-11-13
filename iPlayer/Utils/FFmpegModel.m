@@ -47,7 +47,7 @@
 
 - (UIImage *)cover {
     [self initTool];
-    [self seekTime:3];
+    [self seekTime:15];
     [self decodeFrame];
     return [self imageFromFrame];
 }

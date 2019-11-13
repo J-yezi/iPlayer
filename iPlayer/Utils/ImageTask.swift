@@ -10,7 +10,7 @@ import UIKit
 
 class ImageTask: Operation {
     var path: String!
-    let callbacks = [((Result<UIImage?, FFmpegError>) -> Void)]()
+    var callbacks = [((Result<UIImage, FFmpegError>) -> Void)]()
     let lock = NSLock()
     
     init(path: String) {
@@ -18,7 +18,7 @@ class ImageTask: Operation {
         self.path = path
     }
     
-    func addCallback(_ callback: ((Result<UIImage?, FFmpegError>) -> Void)?) {
+    func addCallback(_ callback: ((Result<UIImage, FFmpegError>) -> Void)?) {
         if callback != nil {
             lock.lock()
             defer { lock.unlock() }
@@ -28,9 +28,9 @@ class ImageTask: Operation {
     
     override func main() {
         let model = FFmpegModel(path)
-        let iamge = model.cover()
+        let image = model.cover()
         for callback in callbacks {
-            callback()
+            callback(.success(image))
         }
     }
 }

@@ -22,24 +22,32 @@ class ImageCache {
     let ioQueue: DispatchQueue
     
     init() {
-        let config = DiskStorage.Config(directory: URL(fileURLWithPath: "/Cache/disk_cache"))
+        let config = DiskStorage.Config(directory: URL(fileURLWithPath: "\(NSHomeDirectory())/Library/Caches/disk_cache"))
         self.diskStorage = try! DiskStorage.Backend<Data>(config: config)
         self.memoryStorage = MemoryStorage.Backend<UIImage>()
         self.ioQueue = DispatchQueue(label: "iPlayer")
     }
     
-    func store(image: UIImage, forKey key: String, toDisk: Bool = true) {
+    func store(image: UIImage, forKey key: String, toDisk: Bool = true, completionHandler: (() -> Void)? = nil) {
         memoryStorage.store(value: image, forKey: key)
         
-        guard toDisk else { return }
+        guard toDisk else {
+            completionHandler?()
+            return
+        }
         ioQueue.async {
-            try! self.diskStorage.store(value: image.jpegData(compressionQuality: 1), forKey: key)
+            if let data = image.jpegData(compressionQuality: 1) {
+                try! self.diskStorage.store(value: data, forKey: key)
+            }
+            completionHandler?()
         }
     }
     
     func storeToDisk(image: UIImage, forKey key: String) {
         ioQueue.async {
-            try! self.diskStorage.store(value: image.jpegData(compressionQuality: 1), forKey: key)
+            if let data = image.jpegData(compressionQuality: 1) {
+                try! self.diskStorage.store(value: data, forKey: key)
+            }
         }
     }
     
@@ -49,18 +57,18 @@ class ImageCache {
         }
         if fromDisk {
             ioQueue.async {
-                diskStorage.remove(forKey: key)
+                self.diskStorage.remove(forKey: key)
             }
         }
     }
     
-    func retrieveImage(forKey key: String, completionHandler: ((Result<UIImage?, FFmpegError>) -> Void)?) {
+    func retrieveImage(forKey key: String, completionHandler: ((Result<UIImage, FFmpegError>) -> Void)?) {
         if let image = retrieveImageInMemoryCache(forKey: key) {
             DispatchQueue.main.async {
-                completionHandler(.success(image))
+                completionHandler?(.success(image))
             }
         } else {
-            retrieveImage(forKey: key, completionHandler: completionHandler)
+            retrieveImageInDiskCache(forKey: key, completionHandler: completionHandler)
         }
     }
     
@@ -68,14 +76,15 @@ class ImageCache {
         return memoryStorage.value(forKey: key)
     }
     
-    func retrieveImageInDiskCache(forKey key: String, completionHandler: @escaping (Result<UIImage?, FFmpegError>) -> Void) {
+    func retrieveImageInDiskCache(forKey key: String, completionHandler: ((Result<UIImage, FFmpegError>) -> Void)?) {
         ioQueue.async {
             do {
-                let data = try self.diskStorage.value(forKey: key)
-                let image = UIImage(data: data)
-                completionHandler(.success(image))
+                if let data = try self.diskStorage.value(forKey: key), let image = UIImage(data: data) {
+                    self.store(image: image, forKey: key, toDisk: false)
+                    completionHandler?(.success(image))
+                }
             } catch {
-                completionHandler(.failure($0))
+                completionHandler?(.failure(error as! FFmpegError))
             }
         }
     }

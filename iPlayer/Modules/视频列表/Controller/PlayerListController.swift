@@ -54,9 +54,9 @@ extension PlayerListController {
         .bind(to: tableView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
 
-        tableView.rx.modelSelected(PlayerListModel.self)
-        .subscribe(onNext: { [weak self] in
-            self?.navigationController?.pushViewController(PlayerController(url: $0.path), animated: true)
-        }).disposed(by: disposeBag)
+//        tableView.rx.modelSelected(PlayerListModel.self)
+//        .subscribe(onNext: { [weak self] in
+////            self?.navigationController?.pushViewController(PlayerController(url: $0.path), animated: true)
+//        }).disposed(by: disposeBag)
     }
 }

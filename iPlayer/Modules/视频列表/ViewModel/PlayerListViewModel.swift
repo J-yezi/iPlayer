@@ -50,10 +50,10 @@ extension PlayerListViewModel {
         var paths: [String]
         do {
             paths = try manager.contentsOfDirectory(atPath: url.path)
+                .filter{ $0.hasSuffix("flv") || $0.hasSuffix("mp4") }
         } catch {
             paths = []
         }
-        print(paths)
         
         return paths.map{ ($0, url.path + "/" + $0) }
     }

@@ -17,6 +17,7 @@
 		64361F1F237A451C00BA0713 /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 64361F19237A451B00BA0713 /* KxMovieDecoder.m */; };
 		64361F21237A8DC600BA0713 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64361F20237A8DC600BA0713 /* ImageDownloader.swift */; };
 		64361F23237AA02100BA0713 /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64361F22237AA02100BA0713 /* ImageTask.swift */; };
+		648B4A70237BD70C0073D622 /* UIImageView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648B4A6F237BD70C0073D622 /* UIImageView+Ex.swift */; };
 		64B7AC1223717A1900D95B03 /* PlayerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B7AC0523717A1900D95B03 /* PlayerListViewModel.swift */; };
 		64B7AC1323717A1900D95B03 /* PlayerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B7AC0723717A1900D95B03 /* PlayerListController.swift */; };
 		64B7AC1423717A1900D95B03 /* PlayerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B7AC0923717A1900D95B03 /* PlayerListModel.swift */; };
@@ -69,6 +70,7 @@
 		64361F1A237A451B00BA0713 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
 		64361F20237A8DC600BA0713 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		64361F22237AA02100BA0713 /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
+		648B4A6F237BD70C0073D622 /* UIImageView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ex.swift"; sourceTree = "<group>"; };
 		64B7AC0523717A1900D95B03 /* PlayerListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewModel.swift; sourceTree = "<group>"; };
 		64B7AC0723717A1900D95B03 /* PlayerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListController.swift; sourceTree = "<group>"; };
 		64B7AC0923717A1900D95B03 /* PlayerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListModel.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				64FF26B623795D26002F1928 /* String+Ex.swift */,
 				64FF26BA237962D4002F1928 /* Data+Ex.swift */,
 				64FF26B823795EEF002F1928 /* Error.swift */,
+				648B4A6F237BD70C0073D622 /* UIImageView+Ex.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				64361F1C237A451C00BA0713 /* KxMovieGLView.m in Sources */,
 				64361F1B237A451C00BA0713 /* KxMovieViewController.m in Sources */,
 				64FF26B1237952DE002F1928 /* MemoryStorage.swift in Sources */,
+				648B4A70237BD70C0073D622 /* UIImageView+Ex.swift in Sources */,
 				64361F23237AA02100BA0713 /* ImageTask.swift in Sources */,
 				64FF26B723795D26002F1928 /* String+Ex.swift in Sources */,
 				64F7D7B1236FF83C002B3AFC /* HTFFMpegPlayerView.m in Sources */,

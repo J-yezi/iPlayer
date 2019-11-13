@@ -11,10 +11,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        print(NSHomeDirectory())
+        
+//        try! FileManager.default.copyItem(at: URL(fileURLWithPath: Bundle.main.path(forResource: "b.flv", ofType: nil)!), to: URL(fileURLWithPath: "\(NSHomeDirectory())/Documents/b.flv"))
         return true
     }
 
