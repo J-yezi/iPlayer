@@ -19,7 +19,6 @@ class FFmpegManager {
     }
     
     func retrieveImage(forKey key: String, completionHandler: ((Result<UIImage, FFmpegError>) -> Void)?) {
-        print("----", cache.imageCachedType(forKey: key))
         if cache.imageCachedType(forKey: key) != .none {
             cache.retrieveImage(forKey: key, completionHandler: completionHandler)
         } else {

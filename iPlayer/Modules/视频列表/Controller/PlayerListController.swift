@@ -12,19 +12,14 @@ import RxSwift
 import RxCocoa
 import UtilsKit
 import RxDataSources
-import Lottie
 
 class PlayerListController: BaseController {
     fileprivate let viewModel = PlayerListViewModel()
-    fileprivate lazy var upBtn: LOTAnimationView = {
-        let upBtn = LOTAnimationView()
-        upBtn.loopAnimation = true
-        return upBtn
-    }()
     
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView(frame: view.bounds, style: UITableView.Style.plain)
         tableView.register(cell: PlayerListCell.self)
+        tableView.register(header: PlayerListHeader.self)
         tableView.rowHeight = 94
         tableView.tableFooterView = UIView()
         return tableView
@@ -47,6 +42,9 @@ class PlayerListController: BaseController {
 
 extension PlayerListController {
     fileprivate func rx() {
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
         let input = PlayerListViewModel.Input(load: Observable.just(()))
         let output = viewModel.transform(input: input)
         
@@ -58,5 +56,17 @@ extension PlayerListController {
 //        .subscribe(onNext: { [weak self] in
 ////            self?.navigationController?.pushViewController(PlayerController(url: $0.path), animated: true)
 //        }).disposed(by: disposeBag)
+    }
+}
+
+extension PlayerListController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header: PlayerListHeader = tableView.dequeueHeaderFooter()
+        header.updateTitle(viewModel.data[section].model)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
 }

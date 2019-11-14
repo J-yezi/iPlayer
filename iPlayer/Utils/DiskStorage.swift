@@ -37,7 +37,7 @@ struct DiskStorage {
         
         func cacheFileURL(forKey key: String) -> URL {
             let array = key.components(separatedBy: "/")
-            let name: String = array.dropLast().first!.md5
+            let name: String = array.last!.md5
             return config.directory.appendingPathComponent(name)
         }
         

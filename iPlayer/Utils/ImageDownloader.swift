@@ -22,7 +22,6 @@ class ImageDownloader: NSObject {
     func downloadImage(forKey key: String, completionHandler: ((Result<UIImage, FFmpegError>) -> Void)? = nil) {
         lock.lock()
         defer { lock.unlock() }
-        
         let operation: ImageTask
         if !tasks.keys.contains(key) {
             operation = ImageTask(path: key)

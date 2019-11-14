@@ -8,7 +8,7 @@
 
 import RxDataSources
 
-typealias PlayerListSection = SectionModel<Int, PlayerListModel>
+typealias PlayerListSection = SectionModel<String, PlayerListModel>
 
 struct PlayerListModel {
     var title: String

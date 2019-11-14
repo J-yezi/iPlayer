@@ -14,9 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Thread.main.name = "Main Thread"
         print(NSHomeDirectory())
         
-//        try! FileManager.default.copyItem(at: URL(fileURLWithPath: Bundle.main.path(forResource: "b.flv", ofType: nil)!), to: URL(fileURLWithPath: "\(NSHomeDirectory())/Documents/b.flv"))
+//        try! FileManager.default.copyItem(at: URL(fileURLWithPath: Bundle.main.path(forResource: "01.mp4", ofType: nil)!), to: URL(fileURLWithPath: "\(NSHomeDirectory())/Documents/01.mp4"))
         return true
     }
 

@@ -27,6 +27,8 @@ class PlayerListViewModel: ViewModelData {
             }
         return Output(data: data)
     }
+    
+    var data: [PlayerListSection]!
 }
 
 extension PlayerListViewModel {
@@ -34,27 +36,54 @@ extension PlayerListViewModel {
         return Observable.create { [weak self] in
             let paths = self?.listPath()
             if let paths = paths {
-                let items = paths.map{ path in PlayerListModel(title: path.0, path: path.1) }
-                $0.onNext([PlayerListSection(model: 0, items: items)])
+                var result = [PlayerListSection]()
+                paths.keys.forEach { key in
+                    if key == "Documents" && result.count > 0 {
+                        result.insert(PlayerListSection(model: "文档", items: paths[key]!.map { res in PlayerListModel(title: res.0, path: res.1) }), at: 0)
+                    } else {
+                        result.append(PlayerListSection(model: key == "Documents" ? "文档" : key, items: paths[key]!.map { res in PlayerListModel(title: res.0, path: res.1) }))
+                    }
+                }
+                $0.onNext(result)
+                self?.data = result
             }
             $0.onCompleted()
             return Disposables.create()
         }
     }
     
-    fileprivate func listPath() -> [(String, String)]? {
-        let manager = FileManager.default
-        let urlForDocument = manager.urls(for: .documentDirectory, in:.userDomainMask)
-        let url = urlForDocument[0] as URL
-        
-        var paths: [String]
+    fileprivate func listPath() -> [String: [(String, String)]]? {
+        var paths = [String: [(String, String)]]()
         do {
-            paths = try manager.contentsOfDirectory(atPath: url.path)
-                .filter{ $0.hasSuffix("flv") || $0.hasSuffix("mp4") }
-        } catch {
-            paths = []
+            try findMovie(path: addPrefix(path: ""), items: &paths)
+        } catch {}
+        return paths
+    }
+    
+    fileprivate func findMovie(path: String, items: inout [String: [(String, String)]]) throws {
+        for item in try FileManager.default.contentsOfDirectory(atPath: path) {
+            if isDirectory(path: path + "/" + item) {
+                try findMovie(path: path + "/" + item, items: &items)
+            } else if item.hasSuffix("flv") || item.hasSuffix("mp4") {
+                let key = path.components(separatedBy: "/").last!
+                if !items.keys.contains(key) {
+                    items[key] = [(String, String)]()
+                }
+                items[key]!.append((item, path + "/" + item))
+            }
         }
-        
-        return paths.map{ ($0, url.path + "/" + $0) }
+    }
+    
+    fileprivate func isDirectory(path: String) -> Bool {
+        var isDirectory = ObjCBool(false)
+        FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory)
+        return isDirectory.boolValue
+    }
+    
+    fileprivate func addPrefix(path: String) -> String {
+        if path == "" {
+            return "\(NSHomeDirectory())/Documents"
+        }
+        return "\(NSHomeDirectory())/Documents/\(path)"
     }
 }

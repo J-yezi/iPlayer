@@ -45,6 +45,8 @@
 		64F7D7BE236FF976002B3AFC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F7D7BD236FF970002B3AFC /* libz.tbd */; };
 		64F7D7C0236FF994002B3AFC /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F7D7BF236FF98F002B3AFC /* libbz2.tbd */; };
 		64F7D7C2236FFA5C002B3AFC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F7D7C1236FFA53002B3AFC /* libiconv.tbd */; };
+		64F9CE35237D2A4600BF15AF /* 01.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 64F9CE34237D2A4500BF15AF /* 01.mp4 */; };
+		64F9CE37237D340400BF15AF /* PlayerListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9CE36237D340400BF15AF /* PlayerListHeader.swift */; };
 		64FF26B1237952DE002F1928 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF26B0237952DE002F1928 /* MemoryStorage.swift */; };
 		64FF26B323795319002F1928 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF26B223795319002F1928 /* DiskStorage.swift */; };
 		64FF26B523795C45002F1928 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF26B423795C45002F1928 /* Storage.swift */; };
@@ -212,6 +214,8 @@
 		64F7D7BD236FF970002B3AFC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		64F7D7BF236FF98F002B3AFC /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		64F7D7C1236FFA53002B3AFC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		64F9CE34237D2A4500BF15AF /* 01.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01.mp4; sourceTree = "<group>"; };
+		64F9CE36237D340400BF15AF /* PlayerListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListHeader.swift; sourceTree = "<group>"; };
 		64FF26B0237952DE002F1928 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		64FF26B223795319002F1928 /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
 		64FF26B423795C45002F1928 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				64B7AC0B23717A1900D95B03 /* PlayerListCell.swift */,
+				64F9CE36237D340400BF15AF /* PlayerListHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				64F7D7B0236FF83C002B3AFC /* HTFFMpegPlayerView.h */,
 				64F7D7AF236FF83C002B3AFC /* HTFFMpegPlayerView.m */,
 				64F7D7B2236FF847002B3AFC /* b.flv */,
+				64F9CE34237D2A4500BF15AF /* 01.mp4 */,
 				64361F0F237A451B00BA0713 /* kxmovie */,
 				64F7D726236FF78A002B3AFC /* FFmpeg */,
 				64F7D718236FF777002B3AFC /* Main.storyboard */,
@@ -699,6 +705,7 @@
 			files = (
 				64F7D7B3236FF8AE002B3AFC /* b.flv in Resources */,
 				64361F1D237A451C00BA0713 /* kxmovie.bundle in Resources */,
+				64F9CE35237D2A4600BF15AF /* 01.mp4 in Resources */,
 				64F7D71F236FF779002B3AFC /* LaunchScreen.storyboard in Resources */,
 				64F7D71C236FF779002B3AFC /* Assets.xcassets in Resources */,
 				64F7D71A236FF777002B3AFC /* Main.storyboard in Resources */,
@@ -776,6 +783,7 @@
 				64B7AC1623717A1900D95B03 /* PlayerController.swift in Sources */,
 				64FF26B323795319002F1928 /* DiskStorage.swift in Sources */,
 				64B7AC1223717A1900D95B03 /* PlayerListViewModel.swift in Sources */,
+				64F9CE37237D340400BF15AF /* PlayerListHeader.swift in Sources */,
 				64361F1F237A451C00BA0713 /* KxMovieDecoder.m in Sources */,
 				64FF26B923795EEF002F1928 /* Error.swift in Sources */,
 			);
