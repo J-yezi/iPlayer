@@ -64,7 +64,9 @@ extension PlayerListViewModel {
         for item in try FileManager.default.contentsOfDirectory(atPath: path) {
             if isDirectory(path: path + "/" + item) {
                 try findMovie(path: path + "/" + item, items: &items)
-            } else if item.hasSuffix("flv") || item.hasSuffix("mp4") {
+            } else if item.hasSuffix("flv") ||
+                    item.hasSuffix("mp4") ||
+                    item.hasSuffix("rmvb") {
                 let key = path.components(separatedBy: "/").last!
                 if !items.keys.contains(key) {
                     items[key] = [(String, String)]()

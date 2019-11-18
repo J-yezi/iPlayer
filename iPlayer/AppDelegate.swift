@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(NSHomeDirectory())
         
 //        try! FileManager.default.copyItem(at: URL(fileURLWithPath: Bundle.main.path(forResource: "01.mp4", ofType: nil)!), to: URL(fileURLWithPath: "\(NSHomeDirectory())/Documents/01.mp4"))
+//        
+//        try! FileManager.default.copyItem(at: URL(fileURLWithPath: Bundle.main.path(forResource: "b.flv", ofType: nil)!), to: URL(fileURLWithPath: "\(NSHomeDirectory())/Documents/b.flv"))
         return true
     }
 

@@ -23,6 +23,7 @@ target 'iPlayer' do
   pod 'RxDataSources'
   pod 'LookinServer', :configurations => ['Debug']
   pod 'lottie-ios', '2.5.3'
+  pod 'CocoaHTTPServer'
 
   # 添加工具
   read_local_kit_or_modules 'Kits' do |name, path|

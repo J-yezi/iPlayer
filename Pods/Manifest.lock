@@ -3,6 +3,13 @@ PODS:
   - CcExtensions (4.2.3):
     - CcExtensions/Core (= 4.2.3)
   - CcExtensions/Core (4.2.3)
+  - CocoaAsyncSocket (7.6.3)
+  - CocoaHTTPServer (2.3):
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+  - CocoaLumberjack (3.6.0):
+    - CocoaLumberjack/Core (= 3.6.0)
+  - CocoaLumberjack/Core (3.6.0)
   - Differentiator (4.0.1)
   - LookinServer (0.9.4)
   - lottie-ios (2.5.3)
@@ -25,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - BaseKit (from `Kits/BaseKit`)
   - CcExtensions
+  - CocoaHTTPServer
   - LookinServer
   - lottie-ios (= 2.5.3)
   - LotusKit (from `Kits/LotusKit`)
@@ -45,6 +53,10 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
+  trunk:
+    - CocoaAsyncSocket
+    - CocoaHTTPServer
+    - CocoaLumberjack
 
 EXTERNAL SOURCES:
   BaseKit:
@@ -57,6 +69,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   BaseKit: ee9a5c93391ffd512628bdc266b23d40615ebf54
   CcExtensions: fa5113176fbbf7a9b350e65bad99edc70d09fe42
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
+  CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   LookinServer: 54eb99921647bda4068ff8776d842285e2bf0adb
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
@@ -68,6 +83,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   UtilsKit: 6f5653d1270b6b0ce72ad844080d3c861fbcc2b0
 
-PODFILE CHECKSUM: 2c4124eca2fcbe35f65335da010827acf762af0c
+PODFILE CHECKSUM: 75d04291380d53d488c17b5620998a55702218b7
 
 COCOAPODS: 1.8.4

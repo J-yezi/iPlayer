@@ -1,6 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-iPlayer/Pods-iPlayer-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BaseKit/BaseKit.framework
 ${BUILT_PRODUCTS_DIR}/CcExtensions/CcExtensions.framework
+${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
+${BUILT_PRODUCTS_DIR}/CocoaHTTPServer/CocoaHTTPServer.framework
+${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${PODS_ROOT}/LookinServer/LookinServer.framework
 ${BUILT_PRODUCTS_DIR}/LotusKit/LotusKit.framework

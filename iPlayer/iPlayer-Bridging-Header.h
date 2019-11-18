@@ -4,3 +4,4 @@
 
 #import "HTFFMpegPlayerView.h"
 #import "FFmpegModel.h"
+#import "KxMovieViewController.h"
