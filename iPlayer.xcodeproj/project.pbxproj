@@ -10,6 +10,7 @@
 		1844AB72749CFF5BE53DC3D7 /* Pods_iPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341A796C38BCB82BB08CBEF /* Pods_iPlayer.framework */; };
 		6412F7B52373C12B000BE041 /* FFmpegManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6412F7B42373C12B000BE041 /* FFmpegManager.swift */; };
 		6412F7B72373C2E8000BE041 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6412F7B62373C2E8000BE041 /* ImageCache.swift */; };
+		643098722382A00A0081ADE1 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643098712382A00A0081ADE1 /* ActionSheet.swift */; };
 		64361F1B237A451C00BA0713 /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64361F10237A451B00BA0713 /* KxMovieViewController.m */; };
 		64361F1C237A451C00BA0713 /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64361F12237A451B00BA0713 /* KxMovieGLView.m */; };
 		64361F1D237A451C00BA0713 /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64361F14237A451B00BA0713 /* kxmovie.bundle */; };
@@ -59,6 +60,7 @@
 		1CC054EF5740C3F9C087EB5A /* Pods-iPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPlayer.debug.xcconfig"; path = "Target Support Files/Pods-iPlayer/Pods-iPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		6412F7B42373C12B000BE041 /* FFmpegManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFmpegManager.swift; sourceTree = "<group>"; };
 		6412F7B62373C2E8000BE041 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		643098712382A00A0081ADE1 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		64361F10237A451B00BA0713 /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieViewController.m; sourceTree = "<group>"; };
 		64361F11237A451B00BA0713 /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
 		64361F12237A451B00BA0713 /* KxMovieGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieGLView.m; sourceTree = "<group>"; };
@@ -261,6 +263,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6430986F23829FE20081ADE1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6430987023829FF30081ADE1 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6430987023829FF30081ADE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				643098712382A00A0081ADE1 /* ActionSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		64361F0F237A451B00BA0713 /* kxmovie */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +431,7 @@
 		64F7D711236FF777002B3AFC /* iPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				6430986F23829FE20081ADE1 /* Common */,
 				64B7AC0223717A1900D95B03 /* Modules */,
 				64E93C152371080A00E3F28D /* Utils */,
 				64F7D712236FF777002B3AFC /* AppDelegate.swift */,
@@ -774,6 +793,7 @@
 				64FF26B523795C45002F1928 /* Storage.swift in Sources */,
 				6412F7B72373C2E8000BE041 /* ImageCache.swift in Sources */,
 				64B7AC1423717A1900D95B03 /* PlayerListModel.swift in Sources */,
+				643098722382A00A0081ADE1 /* ActionSheet.swift in Sources */,
 				64F7D713236FF777002B3AFC /* AppDelegate.swift in Sources */,
 				6412F7B52373C12B000BE041 /* FFmpegManager.swift in Sources */,
 				64B7AC1323717A1900D95B03 /* PlayerListController.swift in Sources */,

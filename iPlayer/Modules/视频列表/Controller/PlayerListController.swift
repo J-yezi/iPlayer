@@ -36,6 +36,9 @@ class PlayerListController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "显示", style: .done, target: self, action: nil)
+        
         rx()
     }
 }
@@ -45,17 +48,24 @@ extension PlayerListController {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
+        navigationItem.rightBarButtonItem?.rx.tap
+        .asObservable()
+        .flatMap { ActionSheet().rx.display() }
+        .subscribe(onNext: {
+            print("------\($0)")
+        }).disposed(by: disposeBag)
+        
         let input = PlayerListViewModel.Input(load: Observable.just(()))
         let output = viewModel.transform(input: input)
         
         output.data
-        .bind(to: tableView.rx.items(dataSource: dataSource))
-        .disposed(by: disposeBag)
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
 
         tableView.rx.modelSelected(PlayerListModel.self)
-        .subscribe(onNext: { [weak self] in
-            self?.navigationController?.pushViewController(PlayerController(path: $0.path), animated: true)
-        }).disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.pushViewController(PlayerController(path: $0.path), animated: true)
+            }).disposed(by: disposeBag)
     }
 }
 
